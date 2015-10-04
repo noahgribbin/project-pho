@@ -1,0 +1,12 @@
+body{
+	background-image:url("background.png");
+}
+#two{
+	padding:5px 5px 5px 40px;
+}
+div{
+  width:100px;
+  height:100px;
+  border-radius: 50%;
+  background:black;
+}

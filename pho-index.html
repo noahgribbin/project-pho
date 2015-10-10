@@ -12,6 +12,10 @@
           <button id="button2" class="myButton" type="button" onclick="playSong('hypercamelot')">Click Me Also!</button>
           <button id="button3" class="myButton" type="button" onclick="playSong('nosenserunning')">Click Me Thrice!</button>
         </div>
+        <form id="volumeControl">
+          Volume:
+          <input type="range" name="volumeSlider" min="0" max="100" defaultValue="100" onclick="changeVolume()">
+        </form>
 		<script src="pho-add-content.js"></script>
 	</body>
 </html>

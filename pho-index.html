@@ -13,10 +13,16 @@
           <button id="button3" class="myButton" type="button" onclick="playSong('nosenserunning')">Click Me Thrice!</button>
           <button id="pause" class="myButton" type="button" onclick="pauseSong()">Pause</button>
         </div>
+        <!-- <div class="range-slider" data-slider> -->
+        <!--   <span class="range-slider-handle" role="slider" tabindex="0"></span> -->
+        <!--   <span class="range-slider-active-segment"></span> -->
+        <!--   <input type="hidden"> -->
+        </div>
         <form id="volumeControl">
           Volume:
-          <input type="range" name="volumeSlider" min="0" max="100" defaultValue="100" onclick="changeVolume()">
+          <input type="range" name="volumeSlider" min="0" max="100" defaultValue="100" oninput="changeVolume()">
         </form>
 		<script src="pho-add-content.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 	</body>
 </html>

@@ -21,29 +21,60 @@ function changeVolume(){
     song.volume = volume;
 }
 
+var grayPalette = ["#aaaaaa","#bbbbbb","#cccccc","#dddddd","#eeeeee"];
+// Red Brown Teal Green
+var brightPalette = ["#FC8089","#FFB782","#6CD5CA","#88EC78"];
+var mid1Palette = ["#D9434E","#DF8644","#2A8B80","#4AB939"];
+var midPalette = ["#A4262F","#A85E27","#186960","#2F8B20"]
+var mid2Palette = ["#890711","#8D4007","#05574F","#157046"];
+var darkPalette = ["#660007","#692D00","#00413A","#0C5700"];
+
+var palette = midPalette;
 
 var canvas = document.createElement("canvas");
-canvas.width=100;
-canvas.height=100;
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 
 var ctx = canvas.getContext("2d");
-ctx.clearRect(0,0,100,100);
-var grayPalette = ["#aaaaaa","#bbbbbb","#cccccc","#dddddd","#eeeeee"];
+ctx.fillStyle = randomColor();
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+var h = canvas.height;
+var w = canvas.width;
 
 function newBackground(){
-    for(i=0;i<10;i++){
-        for(j=0;j<10;j++){
-            ctx.beginPath();
-            ctx.rect(0+10*j,0+10*i,10,10);
-            var randomColorIndex = Math.round(Math.random()*(grayPalette.length-1));
-            ctx.fillStyle = grayPalette[randomColorIndex];
-            ctx.fill();
-            ctx.strokeStyle = "#ffffff";
-            ctx.stroke();
-            ctx.closePath();
-        }
-    }
+    addCircle();
 }
+
+function addCircle(){
+    var x = Math.round(Math.random()*w);
+    var y = Math.round(Math.random()*h);
+    var radius = Math.round(Math.random()*50)+25;
+    var color = randomColor()
+    ctx.beginPath();
+    ctx.arc(x,y,radius,0,2*Math.PI,false);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.lineWidth = 0;
+    ctx.strokeStyle = color;
+    ctx.stroke();
+}
+
+function randomColor(){
+    hex = palette[Math.round(Math.random()*(palette.length-1))];
+    opacity = Math.round(Math.random()*100);
+    return convertHex(hex,opacity);
+}
+
+function convertHex(hex,opacity){
+    hex = hex.replace('#','');
+    r = parseInt(hex.substring(0,2), 16);
+    g = parseInt(hex.substring(2,4), 16);
+    b = parseInt(hex.substring(4,6), 16);
+    result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+    return result;
+}
+
 
 function setDynamicBackground(){
     newBackground();
@@ -51,4 +82,4 @@ function setDynamicBackground(){
     document.body.style.background="transparent url('"+imageDataURL+"') repeat";
 }
 
-var timer = setInterval(setDynamicBackground,1000);
+var timer = setInterval(setDynamicBackground,100);

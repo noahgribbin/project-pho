@@ -10,8 +10,13 @@ function playSong(songName){
     }
     source = 'music/'+songName+'.mp3';
     song = new Audio(source);
+    song.loop = true;
     song.volume = volume
     song.play();
+}
+
+function pauseSong(){
+    song.pause()
 }
 
 function changeVolume(){

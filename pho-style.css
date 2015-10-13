@@ -1,18 +1,30 @@
-html {
-    background: 'black';
-}
-.header {
-    text-align: center;
-}
 .wrapper {
     z-index: 2;
     text-align: center;
-    background: 'red';
+}
+.outer{
+    position: relative;
+}
+#headerInner{
+    text-align: center;
+    background-color: rgba(40, 40, 40, 0.5);
+    width:400px;
+    margin: 0 auto;
+    position:relative;
+    border-radius: 20px
+}
+#textInner{
+    background-color: rgba(144, 144, 144, 0.3);
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px 20px;
+    position: relative;
+    border-radius: 20px/20px;
 }
 #one{
-    margin-left: 50% - 500px;
     text-align: left;
-    width:1000;
+    width:1000px;
 }
 #volumeControl {
     text-align: center;

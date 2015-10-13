@@ -1,36 +1,69 @@
 var source;
 var song = new Audio('music/thebetrayer.mp3');
 var volume = 1;
+var previousVolume = 100;
+var mute = false;
 
 document.getElementById('volumeControl').elements['volumeSlider'].defaultValue = 100;
 
 function playSong(songName) {
   source = 'music/' + songName + '.mp3';
-  tempSource = songName+'.mp3';
+  tempSource = songName + '.mp3';
   // if there is a song currently playing
   if (!(song.paused || song.muted || song.ended)) {
     song.pause(); // pause it
     // if the next song and current song are different
-    if(song.src.indexOf(tempSource)==-1){
+    if (song.src.indexOf(tempSource) == -1) {
       // start the next song
       song = new Audio(source);
       song.loop = true;
       song.volume = volume;
       song.play();
     }
-  }else{
+  } else {
     song = new Audio(source);
     song.loop = true;
     song.volume = volume;
     song.play();
   }
-
 }
 
 function changeVolume() {
   var volumeSlider = document.getElementById('volumeControl').elements['volumeSlider'];
   volume = Number(volumeSlider.value) / 100;
   song.volume = volume;
+}
+
+function muteSong(){
+  mute = !mute;
+  if (mute){
+    previousVolume = song.volume;
+    song.volume = 0;
+    document.getElementById('mute').innerHTML = "Unmute";
+  }else{
+    song.volume = previousVolume;
+    document.getElementById('mute').innerHTML = "Mute";
+  }
+  document.getElementById('volumeControl').elements['volumeSlider'].value = song.volume*100;
+}
+
+window.addEventListener("click",
+  function() {
+    if (song.paused) {
+      document.getElementById('pause').innerHTML = "Play";
+    } else {
+      document.getElementById('pause').innerHTML = "Pause";
+    }
+  });
+
+function pauseSong() {
+  if (song.paused) {
+    song.play();
+    document.getElementById('pause').innerHTML = "Pause";
+  } else {
+    song.pause();
+    document.getElementById('pause').innerHTML = "Play";
+  }
 }
 
 var grayPalette = ["#aaaaaa", "#bbbbbb", "#cccccc", "#dddddd", "#eeeeee"];

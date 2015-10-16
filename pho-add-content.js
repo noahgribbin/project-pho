@@ -186,4 +186,4 @@ function convertHex(hex, opacity) {
 
 newBackground();
 
-var timer = setInterval(updateCanvas, 20);
+var timer = setInterval(updateCanvas, 50);

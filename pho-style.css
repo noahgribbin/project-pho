@@ -27,6 +27,7 @@
     width:1000px;
 }
 #volumeControl {
+    padding-top: 50px;
     text-align: center;
 }
 #myCanvas {
@@ -46,16 +47,18 @@
 }*/
 
 
-/*.wrapper {
+.wrapper {
+  padding-top: 250px;
   position: relative;
   text-align: center;
-}*/
+}
 
 .myButton {
     z-index: 3;
     display: inline-block;
-    margin: 0 auto;
-    width: 200;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 175;
     -moz-box-shadow: inset 0px -3px 7px 0px #29bbff;
     -webkit-box-shadow: inset 0px -3px 7px 0px #29bbff;
     box-shadow: inset 0px -3px 7px 0px #29bbff;

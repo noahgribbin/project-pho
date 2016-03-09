@@ -1,6 +1,6 @@
 var source;
 var song = new Audio('music/thebetrayer.mp3');
-var volume = 1;
+var volume = 0.25;
 var previousVolume = 100;
 var mute = false;
 var circles = [];
@@ -58,7 +58,7 @@ var palettes = [
 
 var palette = palettes[randomPalette()];
 
-document.getElementById('volumeControl').elements['volumeSlider'].defaultValue = 100;
+document.getElementById('volumeControl').elements['volumeSlider'].defaultValue = 25;
 
 function playSong(songName) {
     source = 'music/' + songName + '.mp3';
